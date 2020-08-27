@@ -232,8 +232,11 @@ module Origami
                             next
                         end
 
-                        unless object_value.is_a?(index_type)
-                            STDERR.puts "Warning: object #{self.class.name || 'Array'} should be composed of #{index_type.name} at index #{index} (got #{object_value.type} instead)"
+                        begin
+                            unless object_value.is_a?(index_type)
+                                STDERR.puts "Warning: object #{self.class.name || 'Array'} should be composed of #{index_type.name} at index #{index} (got #{object_value.type} instead)"
+                            end
+                        rescue
                         end
                     end
                 end
