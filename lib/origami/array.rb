@@ -196,6 +196,7 @@ module Origami
                             next
                         end
 
+                        index_type = index_type.last if index_type.respond_to?(:last)
                         unless object_value.is_a?(index_type)
                             STDERR.puts "Warning: object #{self.class.name || 'Array'} should be composed of #{index_type.name} at index #{index} (got #{object_value.type} instead)"
                         end
